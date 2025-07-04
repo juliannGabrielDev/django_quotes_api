@@ -1,6 +1,6 @@
 from rest_framework.serializers import ModelSerializer
 from .models import Quote
-
+import bleach
 
 class QuoteSerializer(ModelSerializer):
     """
@@ -11,6 +11,12 @@ class QuoteSerializer(ModelSerializer):
         - text: String, the content of the quote.
         - author: String, the author of the quote.
     """
+    
+    def validate(self, attrs):
+        attrs["text"] = bleach.clean(attrs["text"]).strip()
+        attrs["author"] = bleach.clean(attrs["author"]).strip()
+        
+        return super().validate(attrs)
 
     class Meta:
         model = Quote
