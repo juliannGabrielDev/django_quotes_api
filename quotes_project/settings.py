@@ -133,6 +133,10 @@ REST_FRAMEWORK = {
     ],
     "SEARCH_PARAM": "search",
     "ORDERING_PARAM": "ordering",
+    'DEFAULT_THROTTLE_RATES': {
+        'anon': '5/minute',
+        'user': '20/minute',
+    }
 }
 
 # Simple JWT Configuration
