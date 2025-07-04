@@ -30,6 +30,12 @@ class RandomQuote(APIView):
 
 
 class QuotesViewSet(ReadOnlyModelViewSet):
+    """
+    A viewset for viewing a list of quotes or retrieving a single quote.
+
+    This viewset provides read-only access to the Quote model, supporting pagination,
+    ordering, and search functionality.
+    """
     queryset = Quote.objects.all()
     serializer_class = QuoteSerializer
     pagination_class = Paginator

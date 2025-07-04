@@ -1,0 +1,15 @@
+### Obtain token
+POST http://127.0.0.1:8000/api/token/
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "password": "kgrng;re46u49%$f$%_"
+}
+
+### Get all quotes
+GET http://127.0.0.1:8000/api/quotes/
+Authorization: Bearer <your_token_here>
+### Get a random quote
+GET http://127.0.0.1:8000/api/quotes/random/
+Authorization: Bearer <your_token_here>
